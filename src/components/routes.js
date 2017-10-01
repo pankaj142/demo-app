@@ -9,7 +9,7 @@ import UserItemGrid from './user_itemGrid';
 const routes = (
       <Switch>
         <Route exact path ="/" component = {Home} />
-        <Route path ="/user_detail" component = {UserDetail} />
+        <Route path ="/user/:id" component = {UserDetail} />
         <Route path ="/user_itemGrid" component = {UserItemGrid} />
     </Switch>
         

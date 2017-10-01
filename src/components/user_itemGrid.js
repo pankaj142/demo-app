@@ -14,21 +14,12 @@ const UserItemGrid =({user, onUserSelect,selectedUser})=>{
                     <label>User Name:</label> {user.username}<br/>
                     <label>Email:</label><br/>{user.email}<br/>
                     <label>Phone No.</label>{user.phno}<br/>
-                     <Link to='/user_detail' >
-                         <div 
-                            onClick={ (user)=>{
-                             onUserSelect(user)
-                             console.log(user.name)
-                             }}     
-                         >Detail</div>  
+                     <Link to={`/user/${user.username}`} >
+                         <div>
+                             Detail
+                        </div>  
                          
                      </Link>
-                     <div
-                        onClick={()=>{
-                          window.history.pushState(user,'/user_detail')
-                          console.log(window.history)
-                        }
-                     }>go</div>
                 </div>
             </div>
         )  

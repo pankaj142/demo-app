@@ -36,8 +36,6 @@ class Home extends Component{
             <h2>Admin Panel</h2>
             <SearchBar />
             <UserList
-                onUserSelect={selectedUser=>{this.setState({selectedUser})}} 
-                users={this.state.users}
                 apiUsers={this.state.apiData} />   
           {/*  <UserDetail user={this.state.selectedUser}/> 8*/}            
         </div>

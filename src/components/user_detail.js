@@ -1,16 +1,34 @@
 import React, {Component} from 'react';
+import Request from 'superagent';
 
-const UserDetail=({selectedUser})=>{
-    if(selectedUser=== null ||selectedUser=== undefined){
-        selectedUser={name:'zzz', email:'zzz@email.com',no:999}
+
+
+export default class UserDetail extends Component{
+    constructor(props){
+        super(props);
+        this.state={
+            UserData:undefined
+        }
     }
-    return (
-        <div>
-           Detail of User:<br/>
-           <label> Name:</label> {selectedUser.name}<br/>
-           <label> Email:</label> {selectedUser.email}<br/>
-           <label> User Name:</label>{selectedUser.username}<br/>
-        </div>
-    )
+    componentDidMount(){
+     var url=`http://52.15.211.217:3000/users/getone/${this.props.match.params.id}`
+     Request.get(url).then(res=>{
+         console.log(res.body)
+         this.setState({
+             UserData:res.body
+         })
+     })
+
+    }
+
+    render(){
+        let uD=this.state.UserData?this.state.UserData:''
+        return(
+            <div>   
+               Name:{uD.name}
+               Email:{uD.email}
+               Username:{uD.username}
+            </div>
+        )
+    }
 }
-export default UserDetail;

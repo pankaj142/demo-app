@@ -4,13 +4,12 @@ import UserItemGrid from './user_itemGrid';
 
 
 const UserList=(props)=>{
+    console.log(props)
    const userList= props.apiUsers.map((user)=>{
         return (
             <UserItemGrid
-                onUserSelect={props.onUserSelect}
                 key={user.email}
-                user={user}
-                selectedUser={props.selectedUser} />
+                user={user} />
         )
      })
  
